@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fui-input',
-  imports: [],
+  standalone: true,
   templateUrl: './fui-input.html',
   styleUrl: './fui-input.scss',
 })
-export class FuiInput {}
+export class FuiInput {
+  @Input() placeholder: string = '';
+}
