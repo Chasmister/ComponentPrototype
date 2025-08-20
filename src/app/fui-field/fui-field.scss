@@ -1,0 +1,86 @@
+.fw-field {
+  display: grid;
+
+  &.fw-horizontal {
+    grid-template-columns: 33% 1fr;
+    grid-template-rows: auto auto auto 1fr;
+  }
+
+  &.fw-horizontalNoLabel {
+    padding-left: 33%;
+    grid-template-columns: 1fr;
+  }
+
+  .fw-field-label {
+    //vertical (default)
+    padding-top: var(--spacingVerticalXXS);
+    padding-bottom: var(--spacingVerticalXXS);
+    margin-bottom: var(--spacingVerticalXXS);
+
+    &.fw-vertical-large {
+      padding-top: 1px;
+      padding-bottom: 1px;
+      margin-bottom: var(--spacingVerticalXS);
+    }
+
+    &.fw-horizontal {
+      padding-top: var(--spacingVerticalSNudge);
+      padding-bottom: var(--spacingVerticalSNudge);
+      margin-right: var(--spacingHorizontalM);
+    }
+
+    .fw-horizontal-small {
+      padding-top: var(--spacingVerticalXS);
+      padding-bottom: var(--spacingVerticalXS);
+    }
+
+    .fw-horizontal-large {
+      padding-top: 9px;
+      padding-bottom: 9px;
+    }
+  }
+
+  //For Hint + validation message
+
+  .fw-field-hint,
+  .fw-field-validationMessage {
+    margin-top: var(--spacingVerticalXXS);
+    color: var(--colorNeutralForeground3);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+    font-weight: var(--fontWeightRegular);
+  }
+
+  .fw-field-validationMessage {
+    &.fw-error {
+      color: var(--colorPaletteRedForeground1);
+    }
+
+    &.fw-success {
+      color: var(--colorPaletteGreenForeground1);
+    }
+
+    &.fw-withIcon {
+      padding-left: calc(12px + var(--spacingHorizontalXS));
+    }
+  }
+
+  .fw-field-validationMessageIcon {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: calc(-12px - var(--spacingHorizontalXS));
+    margin-right: var(--spacingHorizontalXS);
+    line-height: 0;
+    vertical-align: -1px;
+
+    &.fw-error {
+      color: var(--colorPaletteRedForeground1);
+    }
+    &.fw-warning {
+      color: var(--colorPaletteDarkOrangeForeground1);
+    }
+    &.fw-success {
+      color: var(--colorPaletteGreenForeground1);
+    }
+  }
+}
