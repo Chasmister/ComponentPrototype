@@ -12,36 +12,45 @@
   }
 
   .fw-field-label {
-    //vertical (default)
+    display: inline-block;
     padding-top: var(--spacingVerticalXXS);
     padding-bottom: var(--spacingVerticalXXS);
     margin-bottom: var(--spacingVerticalXXS);
-
-    &.fw-vertical-large {
-      padding-top: 1px;
-      padding-bottom: 1px;
-      margin-bottom: var(--spacingVerticalXS);
-    }
-
-    &.fw-horizontal {
-      padding-top: var(--spacingVerticalSNudge);
-      padding-bottom: var(--spacingVerticalSNudge);
-      margin-right: var(--spacingHorizontalM);
-    }
-
-    .fw-horizontal-small {
-      padding-top: var(--spacingVerticalXS);
-      padding-bottom: var(--spacingVerticalXS);
-    }
-
-    .fw-horizontal-large {
-      padding-top: 9px;
-      padding-bottom: 9px;
-    }
+    font-weight: 500;
   }
 
-  //For Hint + validation message
+  /* --- Label size/orientation modifiers --- */
+  .fw-field-label.fw-vertical-large {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: var(--spacingVerticalXS);
+    font-size: 1.1rem;
+  }
 
+  .fw-field-label.fw-horizontal {
+    padding-top: var(--spacingVerticalSNudge);
+    padding-bottom: var(--spacingVerticalSNudge);
+    margin-right: var(--spacingHorizontalM);
+  }
+
+  .fw-field-label.fw-horizontal-small {
+    padding-top: var(--spacingVerticalXS);
+    padding-bottom: var(--spacingVerticalXS);
+    font-size: 0.85rem;
+  }
+
+  .fw-field-label.fw-horizontal-large {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    font-size: 1.25rem;
+  }
+
+  .fw-required {
+    margin-left: 4px;
+    color: var(--colorPaletteRedForeground1);
+  }
+
+  /* --- Hint + validation --- */
   .fw-field-hint,
   .fw-field-validationMessage {
     margin-top: var(--spacingVerticalXXS);
@@ -55,11 +64,9 @@
     &.fw-error {
       color: var(--colorPaletteRedForeground1);
     }
-
     &.fw-success {
       color: var(--colorPaletteGreenForeground1);
     }
-
     &.fw-withIcon {
       padding-left: calc(12px + var(--spacingHorizontalXS));
     }

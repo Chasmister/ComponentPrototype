@@ -6,7 +6,7 @@ import { FuiField } from "./fui-field/fui-field";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonComponent, FuiInput, FuiField],
+  imports: [FuiField, FuiInput],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

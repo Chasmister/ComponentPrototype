@@ -1,16 +1,50 @@
-<div class="fw-field fw-large">
+<div class="fw-field"
+  [class.fw-horizontal]="horizontal && !noLabel"
+  [class.fw-horizontalNoLabel]="horizontal && noLabel"
+>
+  <!-- Label -->
   @if (label) {
-    <label>{{ label }}</label>
+    <label
+      class="fw-field-label"
+      [ngClass]="{
+        'fw-vertical-large': labelSize === 'vertical-large',
+        'fw-horizontal-small': labelSize === 'horizontal-small',
+        'fw-horizontal-large': labelSize === 'horizontal-large',
+        'fw-horizontal': labelSize === 'default' && horizontal
+      }"
+    >
+      {{ label }}
+      @if (required) { <span class="fw-required">*</span> }
+    </label>
   }
 
+  <!-- projected input -->
   <ng-content></ng-content>
 
+  <!-- Hint -->
+  @if (hint) {
+    <div class="fw-field-hint">{{ hint }}</div>
+  }
+
+  <!-- Validation / Messages -->
   @if (errorMessage) {
-    <div class="fw-field-validationMessage fw-error">
-      @if (errorIcon) {
-        <i [class]="errorIcon"></i>
-      }
+    <div class="fw-field-validationMessage fw-error fw-withIcon">
+      <i class="fw-field-validationMessageIcon fw-error" [class]="errorIcon"></i>
       {{ errorMessage }}
+    </div>
+  }
+
+  @if (successMessage) {
+    <div class="fw-field-validationMessage fw-success fw-withIcon">
+      <i class="fw-field-validationMessageIcon fw-success" [class]="successIcon"></i>
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (warningMessage) {
+    <div class="fw-field-validationMessage fw-warning fw-withIcon">
+      <i class="fw-field-validationMessageIcon fw-warning" [class]="warningIcon"></i>
+      {{ warningMessage }}
     </div>
   }
 </div>

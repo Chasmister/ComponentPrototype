@@ -1,28 +1,79 @@
-<!-- <app-button appearance="primary" size="large"
-  >This is my first button!</app-button
->
-<app-button appearance="outline" size="medium">
-  This is small and subtle button
-</app-button>
+<!-- INPUT SIZES -->
+<h3>Input Sizes</h3>
 
-<app-fui-input /> -->
+<app-fui-field label="Small input">
+  <app-fui-input placeholder="Small input" size="small"></app-fui-input>
+</app-fui-field>
 
-<!-- <app-fui-field><app-fui-input /></app-fui-field> -->
+<app-fui-field label="Medium input">
+  <app-fui-input placeholder="Medium input" size="medium"></app-fui-input>
+</app-fui-field>
 
+<app-fui-field label="Large input" >
+  <app-fui-input placeholder="Large input" size="large"></app-fui-input>
+</app-fui-field>
+
+
+<!-- VALIDATION STATES -->
+<h3>Validation States</h3>
+
+<!-- Error -->
 <app-fui-field
   label="Username"
+  hint="Your username"
+  [required]="true"
   errorMessage="Username is required"
   errorIcon="fa-solid fa-triangle-exclamation">
-
-  <app-fui-input placeholder="Enter your username" />
+  <app-fui-input placeholder="Enter username" size="large" [invalid]="true"></app-fui-input>
 </app-fui-field>
 
-
+<!-- Success -->
 <app-fui-field
-  label="Email Address"
-  errorMessage="Please enter a valid email"
-  errorIcon="fa-solid fa-circle-exclamation">
-
-  <app-fui-input placeholder="Enter your email" />
+  label="Email"
+  [horizontal]="true"
+  successMessage="Looks good!"
+  successIcon="fa-solid fa-circle-check">
+  <app-fui-input placeholder="Enter email" size="medium"></app-fui-input>
 </app-fui-field>
 
+<!-- Warning -->
+<app-fui-field
+  [horizontal]="true"
+  [noLabel]="true"
+  warningMessage="Double-check this"
+  warningIcon="fa-solid fa-circle-exclamation">
+  <app-fui-input placeholder="Something without a label" size="small"></app-fui-input>
+</app-fui-field>
+
+
+<!-- LABEL VARIANTS -->
+<h3>Label Variants</h3>
+
+<!-- Default vertical -->
+<app-fui-field label="Default Vertical">
+  <app-fui-input placeholder="Default vertical input"></app-fui-input>
+</app-fui-field>
+
+<!-- Vertical Large -->
+<app-fui-field label="Vertical Large" [labelSize]="'vertical-large'">
+  <app-fui-input placeholder="Large vertical label"></app-fui-input>
+</app-fui-field>
+
+<!-- Horizontal Small -->
+<app-fui-field label="Horizontal Small" [horizontal]="true" [labelSize]="'horizontal-small'">
+  <app-fui-input placeholder="Small horizontal label"></app-fui-input>
+</app-fui-field>
+
+<!-- Horizontal Large -->
+<app-fui-field label="Horizontal Large" [horizontal]="true" [labelSize]="'horizontal-large'">
+  <app-fui-input placeholder="Large horizontal label" size="large"></app-fui-input>
+</app-fui-field>
+
+
+<!-- OTHER STATES -->
+<h3>Other States</h3>
+
+<!-- Disabled Input -->
+<app-fui-field label="Disabled Field">
+  <app-fui-input placeholder="Can't type here" [disabled]="true"></app-fui-input>
+</app-fui-field>
