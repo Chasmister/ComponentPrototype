@@ -26,10 +26,8 @@ export class FuiField {
 
   @Input() hint = '';
 
-  // New unified API
   @Input() message?: FieldMessage;
 
-  // Legacy API (still supported)
   @Input() errorMessage = '';
   @Input() successMessage = '';
   @Input() warningMessage = '';
