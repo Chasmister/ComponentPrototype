@@ -6,5 +6,12 @@
   }"
   [attr.data-disabled]="disabled ? 'true' : null"
 >
-  <input [placeholder]="placeholder" [disabled]="disabled" />
+  <input
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [ngClass]="{ 'fw-invalid': invalid }"
+    [value]="value"
+    (input)="handleInput($event)"
+    (blur)="handleBlur()"
+  />
 </div>
