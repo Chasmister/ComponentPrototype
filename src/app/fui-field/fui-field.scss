@@ -2,12 +2,13 @@
   display: grid;
 
   &.fw-horizontal {
-    grid-template-columns: 33% 1fr;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
     grid-template-rows: auto auto auto 1fr;
   }
 
   &.fw-horizontalNoLabel {
-    padding-left: 33%;
+    padding-left: auto;
     grid-template-columns: 1fr;
   }
 
