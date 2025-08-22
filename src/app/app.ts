@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { FuiField } from './fui-field/fui-field';
@@ -9,6 +9,7 @@ import { FuiInput } from './components/fui-input/fui-input';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FuiField, FuiInput],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App implements OnInit {
   form!: FormGroup;
@@ -27,7 +28,7 @@ export class App implements OnInit {
       verticalLarge: [''],
       horizontalSmall: [''],
       horizontalLarge: [''],
-      disabledField: [{ value: '', disabled: true }]
+      disabledField: [{ value: '', disabled: true }],
     });
   }
 
@@ -38,4 +39,7 @@ export class App implements OnInit {
     }
     console.log('Form submitted:', this.form.value);
   }
+
+  // Helpers for template readability
+  get f() { return this.form.controls; }
 }

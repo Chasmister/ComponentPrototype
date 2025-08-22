@@ -1,17 +1,17 @@
 <div
   class="fw-input"
-  [ngClass]="{
-    'fw-small': size === 'small',
-    'fw-large': size === 'large'
-  }"
+  [class.fw-small]="size === 'small'"
+  [class.fw-large]="size === 'large'"
+  [class.fw-invalid]="invalid"
   [attr.data-disabled]="disabled ? 'true' : null"
 >
   <input
     [placeholder]="placeholder"
     [disabled]="disabled"
-    [ngClass]="{ 'fw-invalid': invalid }"
+    [attr.aria-invalid]="invalid"
+    [attr.aria-required]="required ? 'true' : null"
     [value]="value"
-    (input)="handleInput($event)"
-    (blur)="handleBlur()"
+    (input)="onInput($event)"
+    (blur)="onTouched()"
   />
 </div>

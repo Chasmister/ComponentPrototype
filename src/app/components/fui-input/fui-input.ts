@@ -1,13 +1,14 @@
-import {Component,Input,forwardRef} from '@angular/core';
-import { NgClass } from '@angular/common';
-import {ControlValueAccessor,NG_VALUE_ACCESSOR} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, Input, forwardRef, ChangeDetectionStrategy } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-fui-input',
   standalone: true,
-  imports: [NgClass],
+   imports: [CommonModule],
   templateUrl: './fui-input.html',
-  styleUrl: './fui-input.scss',
+  styleUrls: ['./fui-input.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -17,25 +18,26 @@ import {ControlValueAccessor,NG_VALUE_ACCESSOR} from '@angular/forms';
   ],
 })
 export class FuiInput implements ControlValueAccessor {
-  @Input() placeholder: string = '';
+  @Input() placeholder = '';
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
-  @Input() invalid: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() invalid = false;
+  @Input() disabled = false;
+  @Input() required = false;
 
-  value: string = '';
+  value = '';
 
-  private onChange: (val: any) => void = () => {};
-  private onTouched: () => void = () => {};
+  private onChange: (val: string) => void = () => {};
+  onTouched: () => void = () => {};
 
   writeValue(val: any): void {
-    this.value = val || '';
+    this.value = val ?? '';
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: (val: string) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
@@ -43,13 +45,9 @@ export class FuiInput implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  handleInput(event: Event) {
+  onInput(event: Event) {
     const val = (event.target as HTMLInputElement).value;
     this.value = val;
     this.onChange(val);
-  }
-
-  handleBlur() {
-    this.onTouched();
   }
 }

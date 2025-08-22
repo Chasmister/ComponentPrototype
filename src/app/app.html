@@ -7,7 +7,9 @@
   </app-fui-field>
 
   <app-fui-field label="Medium input">
-    <app-fui-input formControlName="mediumInput" placeholder="Medium input" size="medium"></app-fui-input>
+    <app-fui-input formControlName="mediumInput" placeholder="Medium input" size="medium"
+                   [invalid]="f['mediumInput'].invalid && f['mediumInput'].touched"
+                   [required] = "true"></app-fui-input>
   </app-fui-field>
 
   <app-fui-field label="Large input">
@@ -17,30 +19,36 @@
   <!-- VALIDATION STATES -->
   <h3>Validation States</h3>
 
-  <!-- Error -->
+  <!-- Error (unified message API) -->
   <app-fui-field
     label="Username"
     hint="Your username"
     [required]="true"
-    errorMessage="Username is required"
-    errorIcon="fa-solid fa-triangle-exclamation">
+    [message]="{
+      type: 'fw-error',
+      text: 'Username is required',
+      icon: 'fa-solid fa-triangle-exclamation'
+    }">
     <app-fui-input formControlName="username" placeholder="Enter username" size="large"
-      [invalid]="!!(form.get('username')?.invalid && form.get('username')?.touched)">
-    </app-fui-input>
+                   [invalid]="f['username'].invalid && f['username'].touched"
+                   [required] = "true"></app-fui-input>
   </app-fui-field>
 
-  <!-- Success -->
+  <!-- Success (unified message API) -->
   <app-fui-field
     label="Email"
     [horizontal]="true"
-    successMessage="Looks good!"
-    successIcon="fa-solid fa-circle-check">
+    [message]="{
+      type: 'fw-success',
+      text: 'Looks good!',
+      icon: 'fa-solid fa-circle-check'
+    }">
     <app-fui-input formControlName="email" placeholder="Enter email" size="medium"
-      [invalid]="!!(form.get('email')?.invalid && form.get('email')?.touched)">
-    </app-fui-input>
+                   [invalid]="f['email'].invalid && f['email'].touched"
+                   [required] = "true"></app-fui-input>
   </app-fui-field>
 
-  <!-- Warning -->
+  <!-- Warning (legacy API still works) -->
   <app-fui-field
     [horizontal]="true"
     [noLabel]="true"
@@ -79,5 +87,4 @@
   <div style="margin-top:16px;">
     <button type="submit">Submit</button>
   </div>
-
 </form>

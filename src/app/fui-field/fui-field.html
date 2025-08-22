@@ -1,24 +1,24 @@
 <div class="fw-field"
   [class.fw-horizontal]="horizontal && !noLabel"
-  [class.fw-horizontalNoLabel]="horizontal && noLabel"
->
+  [class.fw-horizontalNoLabel]="horizontal && noLabel">
+
   <!-- Label -->
   @if (label) {
-    <label
-      class="fw-field-label"
+    <label class="fw-field-label"
       [ngClass]="{
         'fw-vertical-large': labelSize === 'vertical-large',
         'fw-horizontal-small': labelSize === 'horizontal-small',
         'fw-horizontal-large': labelSize === 'horizontal-large',
         'fw-horizontal': labelSize === 'default' && horizontal
-      }"
-    >
+      }">
       {{ label }}
-      @if (required) { <span class="fw-required">*</span> }
+      @if (required) {
+        <span class="fw-required">*</span>
+      }
     </label>
   }
 
-  <!-- projected input -->
+  <!-- Projected input -->
   <ng-content></ng-content>
 
   <!-- Hint -->
@@ -26,7 +26,7 @@
     <div class="fw-field-hint">{{ hint }}</div>
   }
 
-  <!-- Validation / Messages -->
+  <!-- Validation Messages -->
   @if (errorMessage) {
     <div class="fw-field-validationMessage fw-error fw-withIcon">
       <i class="fw-field-validationMessageIcon fw-error" [class]="errorIcon"></i>
