@@ -26,7 +26,9 @@
     <div class="fw-field-hint">{{ hint }}</div>
   }
 
-  <!-- Validation Messages -->
+  <!-- ✅ Unified Validation Messages -->
+
+  <!-- Error -->
   @if (errorMessage) {
     <div class="fw-field-validationMessage fw-error fw-withIcon">
       <i class="fw-field-validationMessageIcon fw-error" [class]="errorIcon"></i>
@@ -34,6 +36,7 @@
     </div>
   }
 
+  <!-- Success -->
   @if (successMessage) {
     <div class="fw-field-validationMessage fw-success fw-withIcon">
       <i class="fw-field-validationMessageIcon fw-success" [class]="successIcon"></i>
@@ -41,10 +44,21 @@
     </div>
   }
 
+  <!-- Warning -->
   @if (warningMessage) {
     <div class="fw-field-validationMessage fw-warning fw-withIcon">
       <i class="fw-field-validationMessageIcon fw-warning" [class]="warningIcon"></i>
       {{ warningMessage }}
+    </div>
+  }
+
+
+  @if (message) {
+    <div class="fw-field-validationMessage"
+         [ngClass]="message.type"
+         [class.fw-withIcon]="!!message.icon">
+      <i *ngIf="message.icon" class="fw-field-validationMessageIcon" [class]="message.icon"></i>
+      {{ message.text }}
     </div>
   }
 </div>

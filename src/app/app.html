@@ -8,8 +8,8 @@
 
   <app-fui-field label="Medium input">
     <app-fui-input formControlName="mediumInput" placeholder="Medium input" size="medium"
-                   [invalid]="f['mediumInput'].invalid && f['mediumInput'].touched"
-                   [required] = "true"></app-fui-input>
+
+                   ></app-fui-input>
   </app-fui-field>
 
   <app-fui-field label="Large input">
@@ -19,7 +19,6 @@
   <!-- VALIDATION STATES -->
   <h3>Validation States</h3>
 
-  <!-- Error (unified message API) -->
   <app-fui-field
     label="Username"
     hint="Your username"
@@ -34,7 +33,6 @@
                    [required] = "true"></app-fui-input>
   </app-fui-field>
 
-  <!-- Success (unified message API) -->
   <app-fui-field
     label="Email"
     [horizontal]="true"
@@ -48,7 +46,6 @@
                    [required] = "true"></app-fui-input>
   </app-fui-field>
 
-  <!-- Warning (legacy API still works) -->
   <app-fui-field
     [horizontal]="true"
     [noLabel]="true"
